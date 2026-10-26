@@ -1,0 +1,26 @@
+[project]
+name = "maibot-plugin-followup"
+version = "0.2.1"
+description = "MaiBot plugin: keep a group's talk frequency at 1.0 for a while after the bot is @-mentioned"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.16,<0.17",
+    "maibot-plugin-sdk>=2.15.0",
+]
+
+[tool.ruff]
+line-length = 120
+exclude = ["dist", "build"]
+
+[tool.ruff.lint]
+# BLE001/S110:旁路插件的防御式风格,能力调用失败一律吞掉,不让钩子炸掉宿主主流程。
+ignore = ["E402", "BLE001", "S110"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

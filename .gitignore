@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+docs/
+AGENTS.md
+CLAUDE.md
+.claude/
+.codex/
+.agent/
+.remember/
+.docs/
+.vscode/
+.idea/

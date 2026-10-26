@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "id": "gsskk.followup-window",
+  "version": "0.2.1",
+  "name": "被 @ 后跟进窗口",
+  "description": "群里被 @ 或被引用回复后开一个跟进窗口,参与者不带 @ 的追问也能进入 Planner;别人的闲聊照常走门控。",
+  "author": {
+    "name": "gsskk",
+    "url": "https://github.com/gsskk"
+  },
+  "license": "MIT",
+  "urls": {
+    "repository": "https://github.com/gsskk/maibot-plugin-followup"
+  },
+  "host_application": {
+    "min_version": "1.3.0",
+    "max_version": "1.3.99"
+  },
+  "sdk": {
+    "min_version": "2.15.0",
+    "max_version": "2.99.99"
+  },
+  "dependencies": [],
+  "capabilities": [
+    "frequency.get_current_talk_value",
+    "frequency.get_adjust",
+    "frequency.set_adjust",
+    "message.get_by_id"
+  ],
+  "i18n": {
+    "default_locale": "zh-CN",
+    "supported_locales": [
+      "zh-CN"
+    ]
+  }
+}
