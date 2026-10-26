@@ -41,7 +41,7 @@ bot 发言 ──▶ send_service.after_send(OBSERVE)──▶ followup_window:�
 
 ### 3.1 方式一:官方插件市场(推荐)
 
-接入官方插件库后,在 MaiBot WebUI 的「插件扩展」中搜索 **被 @ 后跟进窗口** (或 `gsskk.followup-window`),点击一键安装。
+接入官方插件库后,在 MaiBot WebUI 的「插件扩展」中搜索 **麦麦留步** (或 `gsskk.followup-window`),点击一键安装。
 
 ### 3.2 方式二:手动安装
 

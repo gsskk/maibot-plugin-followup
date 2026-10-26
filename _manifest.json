@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "id": "gsskk.followup-window",
   "version": "0.2.2",
-  "name": "被 @ 后跟进窗口",
+  "name": "麦麦留步",
   "description": "群里被 @ 或被引用回复后开一个跟进窗口,参与者不带 @ 的追问也能进入 Planner;别人的闲聊照常走门控。",
   "author": {
     "name": "gsskk",
