@@ -46,3 +46,12 @@ def test_repository_root_has_required_official_files():
     license_file = PLUGIN_DIR / "LICENSE"
     assert license_file.is_file()
     assert "MIT License" in license_file.read_text(encoding="utf-8")
+
+
+def test_manifest_versions_pass_market_validation():
+    # 插件中心 CI 拒收前两段为 99/999 的版本号:范围要按实际验证过的版本写,不能写成占位的无限上限。
+    m = _manifest()
+    values = [m["version"]] + [m[f][b] for f in ("host_application", "sdk") for b in ("min_version", "max_version")]
+    for value in values:
+        assert re.fullmatch(r"\d+\.\d+\.\d+", value), value
+        assert not {"99", "999"} & set(value.split(".")[:2]), value

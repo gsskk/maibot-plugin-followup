@@ -4,7 +4,7 @@
 插件做什么、各配置项的含义见 `README.md`。
 
 > 本文档中 MaiBot 的接口、路径与配置行为核对自 MaiBot `5c7637e` 与 `maibot-plugin-sdk 2.16.0`,
-> 插件 manifest 声明兼容 MaiBot 1.3.x、SDK ≥ 2.15.0。
+> 插件 manifest 声明兼容 MaiBot 1.3.x、SDK 2.15.x–2.16.x。
 
 ## 1. 它在 MaiBot 里的位置
 

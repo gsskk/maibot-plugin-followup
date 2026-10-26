@@ -33,7 +33,7 @@ MaiBot 群聊的动态门控(`reply_trigger_mode = "dynamic"`)偏偏在这时最
 
 ## 安装
 
-要求 MaiBot 1.3.x、`maibot-plugin-sdk >= 2.15.0`;插件没有额外 Python 依赖。
+要求 MaiBot 1.3.x、`maibot-plugin-sdk` 2.15.x–2.16.x;插件没有额外 Python 依赖。
 
 ### 方式一:官方插件市场(推荐)
 

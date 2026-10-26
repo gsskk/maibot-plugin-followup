@@ -1,6 +1,6 @@
 [project]
 name = "maibot-plugin-followup"
-version = "0.2.1"
+version = "0.2.2"
 description = "MaiBot plugin: keep a group's talk frequency at 1.0 for a while after the bot is @-mentioned"
 requires-python = ">=3.12"
 license = { text = "MIT" }
