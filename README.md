@@ -63,7 +63,7 @@
 ## 安装
 
 > [!NOTE]
-> 运行环境要求：MaiBot ≥ 1.3.17、`maibot-plugin-sdk` ≥ 2.19.0。插件无额外 Python 依赖。
+> 运行环境要求：MaiBot 1.3.13 及以上的 1.3.x、`maibot-plugin-sdk` 2.16.x–2.19.x。插件无额外 Python 依赖。
 
 ### 方式一：官方插件市场（推荐）
 

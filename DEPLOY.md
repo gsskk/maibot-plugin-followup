@@ -3,8 +3,8 @@
 本文档按部署顺序写:前置条件、放置插件、配置、启动、验收。已经部署过、要换新版本的,直接看第 6 节。
 插件做什么、各配置项的含义见 `README.md`。
 
-> 本文档中 MaiBot 的接口、路径与配置行为核对自 MaiBot `v1.3.17` 与 `maibot-plugin-sdk 2.19.0`,
-> 插件 manifest 声明兼容 MaiBot 1.3.17 及以上的 1.3.x、SDK 2.19.x。
+> 本文档中 MaiBot 的接口、路径与配置行为核对自 MaiBot `v1.3.15`–`v1.3.17` 与 `maibot-plugin-sdk` 2.16.0、2.19.0,
+> 插件 manifest 声明兼容 MaiBot 1.3.13 及以上的 1.3.x、SDK 2.16.x–2.19.x。
 
 ## 1. 它在 MaiBot 里的位置
 
@@ -31,7 +31,7 @@ bot 发言 ──▶ send_service.after_send(OBSERVE)──▶ followup_window:�
 
 | 项目 | 要求 |
 |---|---|
-| MaiBot | ≥ 1.3.17,已能在 QQ 群里正常聊天 |
+| MaiBot | 1.3.13 及以上的 1.3.x,已能在 QQ 群里正常聊天 |
 | 提及必回 | `chat.reply_timing.mentioned_bot_reply = true`(默认)。关掉后被标记的追问只会缩短防抖,不再强制进 Planner |
 | focus_mode | 关闭。开启时宿主本就逐条处理,插件无意义但无害 |
 
@@ -149,7 +149,7 @@ grep '\[followup\] 已加载' /path/to/MaiBot/logs/<当天日志>   # 版本号�
 插件源码目录里没有 `config.toml`,覆盖不会动现有配置。新版本加了配置项时,WebUI 插件配置页会显示默认值,按需调整。
 重启会清掉所有窗口,这是预期行为。
 
-**从 0.2.x 升级:** 需要先把 MaiBot 升到 1.3.17 及以上。0.3.0 不再调发言频率,旧版本可能残留的频率系数在重启 MaiBot 后归 1.0。
+**从 0.2.x 升级:** MaiBot 需为 1.3.13 及以上。0.3.0 不再调发言频率,旧版本可能残留的频率系数在重启 MaiBot 后归 1.0。
 
 ## 7. 停用与卸载
 
@@ -176,7 +176,7 @@ grep '\[followup\] 已加载' /path/to/MaiBot/logs/<当天日志>   # 版本号�
 
 | 现象 | 原因与处理 |
 |---|---|
-| 没有 `[followup] 已加载` 这一行 | 目录没放对(应为 `plugins/followup_window/_manifest.json`,注意第 3 节的 `/.`);或宿主日志里有该插件的 manifest / 配置错误(MaiBot 低于 1.3.17 时 manifest 校验不通过) |
+| 没有 `[followup] 已加载` 这一行 | 目录没放对(应为 `plugins/followup_window/_manifest.json`,注意第 3 节的 `/.`);或宿主日志里有该插件的 manifest / 配置错误(MaiBot 低于 1.3.13 或 SDK 不在 2.16–2.19 时 manifest 校验不通过) |
 | 有 `已加载 … enabled=False`,@ 了也不开窗 | 插件没启用,见第 4 节 |
 | @ 了不开窗,也没有任何 `[followup]` 日志 | 该群不在范围内(看 `scope_mode` 与 `groups`);或是私聊(私聊不设门控,插件不处理) |
 | 有 `标记提及`,宿主却没有强制触发 | 检查 `mentioned_bot_reply` 是否为 true;再看宿主日志是否有该钩子的超时 / 熔断记录 |
