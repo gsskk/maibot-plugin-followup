@@ -46,7 +46,7 @@ class GroupOverride(PluginConfigBase):
 
 
 class FollowupSection(PluginConfigBase):
-    """被 @ 或被引用回复后,该群在一段时间内的每批消息都交给 Planner 判断;只有 bot 自己发言才续期。"""
+    """有人 @ 或引用回复 bot 后给他开一个窗口,窗口里他的追问一定进入 Planner;别人的消息照常走门控。"""
 
     __ui_label__ = "跟进窗口"
     __ui_order__ = 1
@@ -60,9 +60,11 @@ class FollowupSection(PluginConfigBase):
     groups: list[str] = _field(
         default_factory=list, label="群名单", hint="裸群号;blacklist 模式下关闭、whitelist 模式下开启,all 模式忽略"
     )
-    window_seconds: int = _field(300, label="窗口时长(秒)", hint="被 @ 或 bot 发言后,活跃态再持续这么久")
+    window_seconds: int = _field(
+        300, label="窗口时长(秒)", hint="每人被开窗或续期后再持续这么久;bot 发言时只续这段时间内说过话的人"
+    )
     max_active_seconds: int = _field(
-        900, label="活跃上限(秒)", hint="一次活跃态从开始算最长持续多久;等于窗口时长即不续期"
+        900, label="活跃上限(秒)", hint="每人一次窗口从开窗算最长持续多久;等于窗口时长即不续期"
     )
     group_overrides: list[GroupOverride] = _field(
         default_factory=list, label="按群覆盖时长", hint="每行一个群;留 0 的项沿用上面的默认"

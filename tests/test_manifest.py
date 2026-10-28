@@ -32,12 +32,7 @@ def test_manifest_has_host_required_keys():
 
 
 def test_manifest_declares_capabilities_the_plugin_calls():
-    assert set(_manifest()["capabilities"]) == {
-        "frequency.get_current_talk_value",
-        "frequency.get_adjust",
-        "frequency.set_adjust",
-        "message.get_by_id",
-    }
+    assert set(_manifest()["capabilities"]) == {"message.get_by_id"}
 
 
 def test_repository_root_has_required_official_files():
